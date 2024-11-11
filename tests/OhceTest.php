@@ -15,4 +15,15 @@ class OhceTest extends TestCase
         $ohce = new Ohce();
         $this->assertEquals('echo', $ohce->reverse('ohce'));
     }
+
+    /**
+     * @test
+     */
+    public function checkIsPalindrome(){
+        $ohce = new Ohce();
+
+        $this->assertTrue($ohce->isPalindrome('otto'));
+        $this->assertFalse($ohce->isPalindrome('ohce'));
+    }
+
 }
