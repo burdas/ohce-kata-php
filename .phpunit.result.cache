@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"Deg540\\PHPTestingBoilerplate\\Test\\OhceTest::dummyTest":0.002,"Deg540\\PHPTestingBoilerplate\\Test\\OhceTest::test":0.001}}
+{"version":1,"defects":{"Deg540\\PHPTestingBoilerplate\\Test\\OhceTest::reverseWord":3},"times":{"Deg540\\PHPTestingBoilerplate\\Test\\OhceTest::dummyTest":0.002,"Deg540\\PHPTestingBoilerplate\\Test\\OhceTest::test":0.001,"Deg540\\PHPTestingBoilerplate\\Test\\OhceTest::reverseWord":0.002}}
