@@ -26,4 +26,16 @@ class OhceTest extends TestCase
         $this->assertFalse($ohce->isPalindrome('ohce'));
     }
 
+    /**
+     * @test
+     */
+    public function checkIsExitString()
+    {
+        $ohce = new Ohce();
+
+        $this->assertTrue($ohce->isExitString($ohce::EXIT_STRING));
+        $this->assertFalse($ohce->isExitString(''));
+
+    }
+
 }
