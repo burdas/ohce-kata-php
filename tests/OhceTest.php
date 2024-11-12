@@ -7,23 +7,32 @@ use PHPUnit\Framework\TestCase;
 
 class OhceTest extends TestCase
 {
+    private static Ohce $ohce;
+    private static string $name;
+
+    /**
+     * @before
+     */
+    public static function setUpBeforeClass(): void
+    {
+        self::$name = 'Pepe';
+        self::$ohce = new Ohce(new DaytimeFake(9),self::$name);
+    }
     /**
     * @test
     */
     public function reverseWord()
     {
-        $ohce = new Ohce();
-        $this->assertEquals('echo', $ohce->reverse('ohce'));
+        $reverseString = self::$ohce->inputHandler('ohce');
+        $this->assertEquals('echo', $reverseString);
     }
 
     /**
      * @test
      */
     public function checkIsPalindrome(){
-        $ohce = new Ohce();
-
-        $this->assertTrue($ohce->isPalindrome('otto'));
-        $this->assertFalse($ohce->isPalindrome('ohce'));
+        $palindrome = self::$ohce->inputHandler('otto');
+        $this->assertEquals('otto ¡Bonita palabra!',$palindrome);
     }
 
     /**
@@ -31,10 +40,10 @@ class OhceTest extends TestCase
      */
     public function checkIsExitString()
     {
-        $ohce = new Ohce();
-
-        $this->assertTrue($ohce->isExitString($ohce::EXIT_STRING));
-        $this->assertFalse($ohce->isExitString(''));
+        $exitString = self::$ohce::EXIT_STRING;
+        $exitMessage = self::$ohce->inputHandler($exitString);
+        $expectedExitMessage = sprintf("Adios %s", self::$name);
+        $this->assertEquals($expectedExitMessage, $exitMessage);
 
     }
 
